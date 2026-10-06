@@ -25,9 +25,10 @@ export function PortfolioShell({ children }: { children: ReactNode }) {
     <footer className="footer"><span>© 2026 Your Name · A little curiosity, a little code.</span><div className="footer-links"><Link to="/certifications">Certifications & achievements</Link><Link to="/contact">Contact <span aria-hidden="true">↗</span></Link></div></footer>
   </div>;
 }
+export const GITHUB_URL = 'https://github.com/shalabhcodes';
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/shalabh-jha-58574a307';
 export function SocialButtons() {
-  const [note, setNote] = useState('');
-  return <><Button variant="glass" onClick={() => setNote('GitHub profile: your-username · Placeholder, not connected yet.')}><Github/>GitHub</Button><Button variant="glass" onClick={() => setNote('LinkedIn profile: your-name · Placeholder, not connected yet.')}><Linkedin/>LinkedIn</Button>{note && <p role="status" className="social-note">{note}</p>}</>;
+  return <><Button variant="glass" asChild><a href={GITHUB_URL} target="_blank" rel="noreferrer noopener"><Github/>GitHub</a></Button><Button variant="glass" asChild><a href={LINKEDIN_URL} target="_blank" rel="noreferrer noopener"><Linkedin/>LinkedIn</a></Button></>;
 }
 export function PageIntro({ label, title, children }: { label:string; title:string; children:ReactNode }) {
   return <><p className="kicker">{label}</p><h1 className="page-title">{title}</h1><div className="page-intro">{children}</div></>;
