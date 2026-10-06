@@ -51,6 +51,7 @@ function Contact(){
         <Linkedin size={22} className="text-primary"/>
         <h2>LinkedIn</h2>
         <div className="contact-value"><a className="profile-link" href={LINKEDIN_URL} target="_blank" rel="noreferrer noopener">linkedin.com/in/shalabh-jha-58574a307 <ArrowUpRight size={14}/></a></div>
+      </article>
       <article className="contact-item contact-item--wide">
         <MapPin size={22} className="text-primary"/>
         <h2>Location</h2>
