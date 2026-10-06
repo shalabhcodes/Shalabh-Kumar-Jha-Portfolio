@@ -43,11 +43,6 @@ function Contact(){
         </div>
       </article>
       <article className="contact-item">
-        <MapPin size={22} className="text-primary"/>
-        <h2>Location</h2>
-        <p className="body-copy">JECRC University<br/>Jaipur, Rajasthan, India</p>
-      </article>
-      <article className="contact-item">
         <Github size={22} className="text-primary"/>
         <h2>GitHub</h2>
         <div className="contact-value"><a className="profile-link" href={GITHUB_URL} target="_blank" rel="noreferrer noopener">github.com/shalabhcodes <ArrowUpRight size={14}/></a></div>
@@ -56,6 +51,11 @@ function Contact(){
         <Linkedin size={22} className="text-primary"/>
         <h2>LinkedIn</h2>
         <div className="contact-value"><a className="profile-link" href={LINKEDIN_URL} target="_blank" rel="noreferrer noopener">linkedin.com/in/shalabh-jha-58574a307 <ArrowUpRight size={14}/></a></div>
+      </article>
+      <article className="contact-item">
+        <MapPin size={22} className="text-primary"/>
+        <h2>Location</h2>
+        <p className="body-copy">JECRC University<br/>Jaipur, Rajasthan, India</p>
       </article>
     </div>
     {status&&<p role="status" className="body-copy">{status}</p>}
