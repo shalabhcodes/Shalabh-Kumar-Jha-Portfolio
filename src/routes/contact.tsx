@@ -52,12 +52,8 @@ function Contact(){
         <h2>LinkedIn</h2>
         <div className="contact-value"><a className="profile-link" href={LINKEDIN_URL} target="_blank" rel="noreferrer noopener">linkedin.com/in/shalabh-jha-58574a307 <ArrowUpRight size={14}/></a></div>
       </article>
-      <article className="contact-item">
-        <MapPin size={22} className="text-primary"/>
-        <h2>Location</h2>
-        <p className="body-copy">JECRC University<br/>Jaipur, Rajasthan, India</p>
-      </article>
     </div>
+    <p className="location-line"><MapPin size={16} className="text-primary"/> JECRC University · Jaipur, Rajasthan, India</p>
     {status&&<p role="status" className="body-copy">{status}</p>}
   </section>;
 }
