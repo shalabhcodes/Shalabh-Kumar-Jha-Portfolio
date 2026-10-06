@@ -13,7 +13,7 @@ function Index() {
  return <>
   <section className="hero">
    <div className="hero-copy glass"><div className="eyebrow student-label"><span className="status-dot"/>First-year B.Tech CSE · JECRC University, Jaipur</div>
-   <h1>Your Name.</h1><p className="hero-description">A curious computer science student learning to turn ideas into small, thoughtful experiences — one project at a time.</p>
+   <h1>Shalabh Kumar Jha.</h1><p className="hero-description">A curious computer science student learning to turn ideas into small, thoughtful experiences — one project at a time.</p>
    <div className="hero-actions"><Button variant="portfolio" asChild><Link to="/projects">View projects <ArrowUpRight/></Link></Button><SocialButtons/></div></div>
    <div className="portrait-frame glass"><img className="portrait" src={portrait} alt="Illustrative sample student portrait, to be replaced with your own photo" width={1024} height={1280}/><span className="photo-label">Sample portrait</span></div>
   </section>
