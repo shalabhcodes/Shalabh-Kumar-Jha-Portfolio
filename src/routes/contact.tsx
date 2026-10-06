@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { useState } from 'react';
-import { Mail, MapPin, Phone, Github, Linkedin, Copy, Check, ArrowUpRight } from 'lucide-react';
+import { Mail, MapPin, Phone, Github, Linkedin, Copy, Check, ArrowUpRight, GraduationCap } from 'lucide-react';
 import { PageIntro, GITHUB_URL, LINKEDIN_URL } from '@/components/portfolio';
 import { Button } from '@/components/ui/button';
 import { portfolioHead } from '@/lib/portfolio';
@@ -53,13 +53,18 @@ function Contact(){
         <h2>LinkedIn</h2>
         <div className="contact-value"><a className="profile-link" href={LINKEDIN_URL} target="_blank" rel="noreferrer noopener">linkedin.com/in/shalabh-jha-58574a307 <ArrowUpRight size={14}/></a></div>
       </article>
-      <article className="contact-item contact-item--wide">
+      <article className="contact-item">
         <MapPin size={22} className="text-primary"/>
         <h2>Location</h2>
         <div className="contact-value">
           <span className="contact-address">{ADDRESS}</span>
           <Button variant="glass" size="icon" onClick={()=>copy('address')} aria-label="Copy address" title="Copy address">{copied==='address'?<Check/>:<Copy/>}</Button>
         </div>
+      </article>
+      <article className="contact-item">
+        <GraduationCap size={22} className="text-primary"/>
+        <h2>University</h2>
+        <div className="contact-value"><span className="contact-address">JECRC University · Jaipur, Rajasthan, India</span></div>
       </article>
     </div>
     {status&&<p role="status" className="body-copy">{status}</p>}
