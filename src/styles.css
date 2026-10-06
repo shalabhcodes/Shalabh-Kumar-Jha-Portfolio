@@ -104,6 +104,7 @@ h1,h2 { font-family:var(--font-display); font-weight:600; font-style:italic; }
 .achievement h2 { font:500 20px var(--font-sans); margin:8px 0; }
 .contact-list { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:40px; }
 .contact-item { padding:24px 0; border-top:1px solid var(--border); }
+.contact-list > :last-child:nth-child(odd) { grid-column:1 / -1; }
 .contact-item h2 { font:500 18px var(--font-sans); margin:16px 0 12px; }
 .contact-value { display:flex; align-items:center; flex-wrap:wrap; gap:12px; overflow-wrap:anywhere; font-size:14px; }
 .profile-link { display:inline-flex; align-items:center; gap:6px; color:var(--primary); text-decoration:none; border-bottom:1px solid transparent; transition:border-color .2s var(--ease); }
