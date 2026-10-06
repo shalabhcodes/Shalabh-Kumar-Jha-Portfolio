@@ -7,20 +7,21 @@ import { portfolioHead } from '@/lib/portfolio';
 
 const EMAIL = 'jhashalabh277@gmail.com';
 const PHONE = '8319468928';
+const ADDRESS = 'H.No.204, Sec-E, Sch No. 78, Vijay Nagar, Indore, Madhya Pradesh (452010)';
 
-export const Route = createFileRoute('/contact')({head:()=>portfolioHead('Contact','Connect with a first-year B.Tech CSE student at JECRC University, Jaipur. Email, mobile number, GitHub and LinkedIn profiles.'),component:Contact});
+export const Route = createFileRoute('/contact')({head:()=>portfolioHead('Contact','Connect with a first-year B.Tech CSE student at JECRC University, Jaipur. Email, mobile number, address, GitHub and LinkedIn profiles.'),component:Contact});
 
 function Contact(){
-  const [copied,setCopied]=useState<'email'|'phone'|null>(null);
+  const [copied,setCopied]=useState<'email'|'phone'|'address'|null>(null);
   const [status,setStatus]=useState('');
-  async function copy(field:'email'|'phone'){
-    const value = field === 'email' ? EMAIL : PHONE;
+  async function copy(field:'email'|'phone'|'address'){
+    const value = field === 'email' ? EMAIL : field === 'phone' ? PHONE : ADDRESS;
     try{
       await navigator.clipboard.writeText(value);
       setCopied(field);
-      setStatus(field === 'email' ? 'Email address copied.' : 'Mobile number copied.');
+      setStatus(field === 'email' ? 'Email address copied.' : field === 'phone' ? 'Mobile number copied.' : 'Address copied.');
     }catch{
-      setStatus(`Could not copy. ${field === 'email' ? 'Email' : 'Mobile'}: ${value}`);
+      setStatus(`Could not copy. ${field === 'email' ? 'Email' : field === 'phone' ? 'Mobile' : 'Address'}: ${value}`);
     }
   }
   return <section className="page">
@@ -52,8 +53,15 @@ function Contact(){
         <h2>LinkedIn</h2>
         <div className="contact-value"><a className="profile-link" href={LINKEDIN_URL} target="_blank" rel="noreferrer noopener">linkedin.com/in/shalabh-jha-58574a307 <ArrowUpRight size={14}/></a></div>
       </article>
+      <article className="contact-item contact-item--wide">
+        <MapPin size={22} className="text-primary"/>
+        <h2>Location</h2>
+        <div className="contact-value">
+          <span className="contact-address">{ADDRESS}</span>
+          <Button variant="glass" size="icon" onClick={()=>copy('address')} aria-label="Copy address" title="Copy address">{copied==='address'?<Check/>:<Copy/>}</Button>
+        </div>
+      </article>
     </div>
-    <p className="location-line"><MapPin size={16} className="text-primary"/> JECRC University · Jaipur, Rajasthan, India</p>
     {status&&<p role="status" className="body-copy">{status}</p>}
   </section>;
 }

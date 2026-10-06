@@ -108,7 +108,8 @@ h1,h2 { font-family:var(--font-display); font-weight:600; font-style:italic; }
 .contact-value { display:flex; align-items:center; flex-wrap:wrap; gap:12px; overflow-wrap:anywhere; font-size:14px; }
 .profile-link { display:inline-flex; align-items:center; gap:6px; color:var(--primary); text-decoration:none; border-bottom:1px solid transparent; transition:border-color .2s var(--ease); }
 .profile-link:hover { border-bottom-color:var(--primary); }
-.location-line { display:flex; align-items:center; gap:9px; margin-top:30px; color:var(--muted-foreground); font-size:14px; }
+.contact-item--wide { grid-column:1 / -1; }
+.contact-address { font-size:15px; }
 .placeholder-note { color:var(--muted-foreground); font-size:11px; margin-top:12px; }
 .enter { animation:rise .7s var(--ease) both; }
 @keyframes rise { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
