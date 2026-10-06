@@ -109,7 +109,6 @@ h1,h2 { font-family:var(--font-display); font-weight:600; font-style:italic; }
 .profile-link { display:inline-flex; align-items:center; gap:6px; color:var(--primary); text-decoration:none; border-bottom:1px solid transparent; transition:border-color .2s var(--ease); }
 .profile-link:hover { border-bottom-color:var(--primary); }
 .contact-address { font-size:15px; }
-.contact-address { font-size:15px; }
 .placeholder-note { color:var(--muted-foreground); font-size:11px; margin-top:12px; }
 .enter { animation:rise .7s var(--ease) both; }
 @keyframes rise { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
