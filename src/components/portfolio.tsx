@@ -18,11 +18,11 @@ export function PortfolioShell({ children }: { children: ReactNode }) {
     <header className="header"><nav className="nav" aria-label="Main navigation">
       <Link to="/" className="brand">Shalabh Kumar Jha</Link>
       <div className="nav-links">{navigation.map(n => <Link key={n.to} to={n.to} className="nav-link" activeOptions={{ exact:true }}>{n.label}</Link>)}</div>
-      <div className="nav-actions"><Button variant="portfolio" asChild><Link to="/contact">Say hello</Link></Button>
+      <div className="nav-actions"><Button variant="portfolio" asChild><Link to="/contact">Contact</Link></Button>
       <Button variant="ghost" size="icon" className="menu-toggle" aria-label={open ? 'Close navigation' : 'Open navigation'} aria-expanded={open} onClick={() => setOpen(!open)}>{open ? <X/> : <Menu/>}</Button></div>
     </nav>{open && <nav className="mobile-nav" aria-label="Mobile navigation">{navigation.map(n => <Link key={n.to} to={n.to} className="nav-link" activeOptions={{exact:true}}>{n.label}</Link>)}<Link to="/contact" className="nav-link">Contact</Link></nav>}</header>
     <main key={location.pathname} className="enter">{children}</main>
-    <footer className="footer"><span>© 2026 Shalabh Kumar Jha · A little curiosity, a little code.</span><div className="footer-links"><Link to="/certifications">Certifications & achievements</Link><Link to="/contact">Contact <span aria-hidden="true">↗</span></Link></div></footer>
+    <footer className="footer"><span>© 2026 Shalabh Kumar Jha · A little curiosity, a little code.</span></footer>
   </div>;
 }
 export const GITHUB_URL = 'https://github.com/shalabhcodes';
