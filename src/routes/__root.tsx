@@ -81,10 +81,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Your Name — Student Portfolio" },
+      { title: "Shalabh Kumar Jha — Student Portfolio" },
       { name: "description", content: "First-year CSE student portfolio at JECRC University, Jaipur." },
       
-      { property: "og:title", content: "Your Name — Student Portfolio" },
+      { property: "og:title", content: "Shalabh Kumar Jha — Student Portfolio" },
       { property: "og:description", content: "First-year CSE student portfolio at JECRC University, Jaipur." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
