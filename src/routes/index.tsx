@@ -3,7 +3,6 @@ import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ProjectsGrid, SocialButtons } from '@/components/portfolio';
 import { portfolioHead } from '@/lib/portfolio';
-import portraitAsset from '@/assets/shalabh-portrait.png.asset.json';
 
 export const Route = createFileRoute('/')({
  head: () => portfolioHead('Home', 'Personal portfolio of a first-year B.Tech Computer Science Engineering student at JECRC University, Jaipur. Discover a growing journey in code.'),
@@ -15,7 +14,13 @@ function Index() {
    <div className="hero-copy glass"><div className="eyebrow student-label"><span className="status-dot"/>First-year B.Tech CSE · JECRC University, Jaipur</div>
    <h1>Shalabh Kumar Jha.</h1><p className="hero-description">A curious computer science student learning to turn ideas into small, thoughtful experiences — one project at a time.</p>
    <div className="hero-actions"><Button variant="portfolio" asChild><Link to="/projects">View projects <ArrowUpRight/></Link></Button><SocialButtons/></div></div>
-   <div className="portrait-frame glass"><img className="portrait" src={portraitAsset.url} alt="Shalabh Kumar Jha" width={944} height={1133}/></div>
+   <div className="portrait-frame glass"><img
+  className="portrait"
+  src="/shalabh-portrait.png"
+  alt="Shalabh Kumar Jha"
+  width={944}
+  height={1133}
+/></div>
   </section>
   <section className="summary-grid" aria-label="At a glance">
    <div className="summary glass"><p className="kicker">Education</p><strong>B.Tech CSE · JECRC University</strong><p>Jaipur · First year</p></div>
