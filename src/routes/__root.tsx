@@ -101,7 +101,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   }),
   // Botpress webchat: server-rendered in the initial HTML so it initializes
   // exactly once, before hydration, and stays mounted across client-side navigation.
-  scripts: [
+  scripts: () => [
     { src: "https://cdn.botpress.cloud/webchat/v5.0/inject.js" },
     { src: "https://files.bpcontent.cloud/2026/10/13/08/20261013085817-LFWWB0BF.js", defer: true },
   ],
