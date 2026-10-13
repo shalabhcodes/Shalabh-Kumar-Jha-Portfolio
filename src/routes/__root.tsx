@@ -119,8 +119,28 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
+const BOTPRESS_SCRIPTS = [
+  "https://cdn.botpress.cloud/webchat/v5.0/inject.js",
+  "https://files.bpcontent.cloud/2026/10/13/08/20261013085817-LFWWB0BF.js",
+] as const;
+
+function loadBotpressChat() {
+  if (typeof document === "undefined") return;
+  for (const src of BOTPRESS_SCRIPTS) {
+    if (document.querySelector(`script[src="${src}"]`)) continue;
+    const script = document.createElement("script");
+    script.src = src;
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+}
+
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+
+  useEffect(() => {
+    loadBotpressChat();
+  }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
