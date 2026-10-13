@@ -119,19 +119,33 @@ function RootShell({ children }: { children: ReactNode }) {
   );
 }
 
-const BOTPRESS_SCRIPTS = [
-  "https://cdn.botpress.cloud/webchat/v5.0/inject.js",
-  "https://files.bpcontent.cloud/2026/10/13/08/20261013085817-LFWWB0BF.js",
-] as const;
+const BOTPRESS_INJECT_URL = "https://cdn.botpress.cloud/webchat/v5.0/inject.js";
+const BOTPRESS_CONFIG_URL = "https://files.bpcontent.cloud/2026/10/13/08/20261013085817-LFWWB0BF.js";
 
-function loadBotpressChat() {
-  if (typeof document === "undefined") return;
-  for (const src of BOTPRESS_SCRIPTS) {
-    if (document.querySelector(`script[src="${src}"]`)) continue;
+function appendScriptOnce(src: string) {
+  return new Promise<void>((resolve, reject) => {
+    const existing = document.querySelector<HTMLScriptElement>(`script[src="${src}"]`);
+    if (existing) {
+      resolve();
+      return;
+    }
     const script = document.createElement("script");
     script.src = src;
-    script.defer = true;
+    script.async = false;
+    script.onload = () => resolve();
+    script.onerror = () => reject(new Error(`Failed to load ${src}`));
     document.body.appendChild(script);
+  });
+}
+
+async function loadBotpressChat() {
+  if (typeof document === "undefined") return;
+  try {
+    // The config script must run only after inject.js has defined window.botpress.
+    await appendScriptOnce(BOTPRESS_INJECT_URL);
+    await appendScriptOnce(BOTPRESS_CONFIG_URL);
+  } catch (error) {
+    console.error(error);
   }
 }
 
