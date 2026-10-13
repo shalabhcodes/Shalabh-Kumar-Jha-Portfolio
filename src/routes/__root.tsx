@@ -119,6 +119,8 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        {/* Mount point for the Botpress webchat bubble (its webchatId is "webchat-root"). */}
+        <div id="webchat-root" />
         <Scripts />
       </body>
     </html>
