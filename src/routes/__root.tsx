@@ -99,6 +99,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
+  // Botpress webchat: server-rendered in the initial HTML so it initializes
+  // exactly once, before hydration, and stays mounted across client-side navigation.
+  scripts: () => [
+    { src: "https://cdn.botpress.cloud/webchat/v5.0/inject.js" },
+    { src: "https://files.bpcontent.cloud/2026/10/13/08/20261013085817-LFWWB0BF.js", defer: true },
+  ],
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
@@ -113,6 +119,8 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        {/* Mount point for the Botpress webchat bubble (its webchatId is "webchat-root"). */}
+        <div id="webchat-root" />
         <Scripts />
       </body>
     </html>
